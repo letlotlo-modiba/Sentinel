@@ -26,6 +26,6 @@ def run_detection():
 if __name__ == "__main__":
     alerts = run_detection()
 
-    print("ALERTS DETECTED:")
+    print("ALERTS DETECTED: \n")
     for alert in alerts:
         print(alert)
