@@ -1,13 +1,14 @@
-from loader import load_logs, get_failed_logins
-from rules import (
+from detect.loader import load_logs, get_failed_logins
+from detect.rules import (
     detect_brute_force,
     detect_rotating_attack,
     detect_distributed_attack
 )
-from alerts import format_alerts
+from detect.alerts import format_alerts
 
-def run_detection():
-    df = load_logs()
+def run_detection(df=None):
+    if df is None:
+        df = load_logs()
     failed = get_failed_logins(df)
 
     alerts = []
