@@ -1,0 +1,1 @@
+"""Sentinel dashboard UI components."""
