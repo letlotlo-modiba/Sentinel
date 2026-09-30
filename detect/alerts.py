@@ -10,6 +10,9 @@ def assign_serverity(alert_type, count):
 
     return "LOW"
 
+# Alias for correct spelling
+assign_severity = assign_serverity
+
 def format_alerts(df, alert_type):
     alerts = []
 

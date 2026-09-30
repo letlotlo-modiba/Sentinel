@@ -1,37 +1,40 @@
 import random
 try:
-    from simulator.utils import generate_ip, now
+    from simulator.utils import generate_ip, now, get_ip_location
 except ImportError:
-    from utils import generate_ip, now
+    from utils import generate_ip, now, get_ip_location
 
 
 # --- Brute Force Attack ---
-def brute_force_attack():
-    attacker_ip = generate_ip()
+def brute_force_attack(count=12, username="admin", ip=None, location=None):
+    attacker_ip = ip or generate_ip()
+    loc = location if location is not None else get_ip_location(attacker_ip)
     return [{
         "timestamp": now(),
-        "username": "admin",
+        "username": username,
         "ip": attacker_ip,
-        "location": "Unknown",
+        "location": loc,
         "user_agent": "Firefox/Linux",
         "status": "FAIL"
     }
-    for _ in range(12)
+    for _ in range(count)
     ]
 
 
 # --- Rotating IP Attack ---
-def rotating_attack():
-    attacker_ips = [generate_ip() for _ in range(3)]
+def rotating_attack(count=18, ip_pool_size=3, username="admin", location=None):
+    attacker_ips = [generate_ip() for _ in range(ip_pool_size)]
 
     logs = []
 
-    for _ in range(18):
+    for _ in range(count):
+        ip = random.choice(attacker_ips)
+        loc = location if location is not None else get_ip_location(ip)
         logs.append({
             "timestamp": now(),
-            "username": "admin",
-            "ip": random.choice(attacker_ips),
-            "location": "Unknown",
+            "username": username,
+            "ip": ip,
+            "location": loc,
             "user_agent": "Firefox/Linux",
             "status": "FAIL"
         })
@@ -40,15 +43,17 @@ def rotating_attack():
 
 
 # --- Distributed Attack (botnet) ---
-def distributed_attack():
+def distributed_attack(count=25, username="admin", location=None):
     logs = []
 
-    for _ in range(25):
+    for _ in range(count):
+        ip = generate_ip()
+        loc = location if location is not None else get_ip_location(ip)
         logs.append({
             "timestamp": now(),
-            "username": "admin",
-            "ip": generate_ip(),
-            "location": "Unknown",
+            "username": username,
+            "ip": ip,
+            "location": loc,
             "user_agent": "Firefox/Linux",
             "status": "FAIL"  
         })
