@@ -1,9 +1,8 @@
 # Sentinel: Cyber Threat Simulation & SOC Detection Platform
 
 [![Python](https://img.shields.io/badge/Python-3.12%2B-blue.svg)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/Tests-27%20Passed-brightgreen.svg)](file:///home/letlotlo/Desktop/Sentinel/tests)
 [![Dashboard](https://img.shields.io/badge/UI-Streamlit%20SOC-FF4B4B.svg)](file:///home/letlotlo/Desktop/Sentinel/dashboard/app.py)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](file:///home/letlotlo/Desktop/Sentinel/LICENSE)
+
 
 **Sentinel** is an end-to-end cybersecurity intelligence and monitoring platform. It generates synthetic enterprise authentication telemetry, injects multi-vector adversarial attacks, analyzes traffic using rolling-window detection algorithms, and streams prioritised security alerts directly into an interactive Security Operations Center (SOC) dashboard.
 
@@ -146,7 +145,7 @@ Output:
 =================================================================
            SENTINEL THREAT DETECTION REPORT
 =================================================================
-Total Alerts: 82 | HIGH: 36 | MEDIUM: 46 | LOW: 0
+Total Alerts: 90 | HIGH: 40 | MEDIUM: 50 | LOW: 0
 -----------------------------------------------------------------
 [MEDIUM] BRUTE_FORCE          | User: N/A        | IP: 185.220.101.5   | 2026-09-30 22:48:10
 [MEDIUM] ROTATING_ATTACK      | User: admin      | IP: Multiple / N/A  | 2026-09-30 22:48:10
